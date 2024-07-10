@@ -38,6 +38,8 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     padding-top: 80px; /* Adjust for header */
+    min-height: calc(100vh - 40px); /* Ensure footer is at the bottom */
+    flex-direction: column;
 }
 
 .carousel {
@@ -79,8 +81,8 @@ nav ul li a {
     width: 150px;
 }
 
-.footer {
-    position: absolute;
+footer {
+    position: relative; /* Changed from absolute */
     bottom: 0;
     width: 100%;
     text-align: center;
@@ -88,4 +90,5 @@ nav ul li a {
     background-color: #333;
     color: #fff;
     font-size: 0.8em;
+    margin-top: auto; /* Push footer to the bottom */
 }
