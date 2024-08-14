@@ -78,17 +78,36 @@
             position: relative;
             overflow: hidden;
         }
-        .carousel img {
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            height: 400px;
+        }
+        .carousel-item img {
             width: 100%;
             height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            object-fit: cover;
         }
-        .carousel img.active {
-            opacity: 1;
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        .carousel-nav-item {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .carousel-nav-item.active {
+            background-color: var(--dark-orange);
         }
         .content {
             text-align: center;
@@ -196,10 +215,13 @@
     </header>
 
     <div class="carousel">
-        <img src="photo/0814P1.png" alt="Image 1" class="active">
-        <img src="photo/0814P2.png" alt="Image 2">
-        <img src="photo/0814P3.png" alt="Image 2">
-    </div>
+      <div class="carousel-inner">
+          <div class="carousel-item"><img src="photo/0814P1.png" alt="Image 1"></div>
+          <div class="carousel-item"><img src="photo/0814P2.png" alt="Image 2"></div>
+          <div class="carousel-item"><img src="photo/0814P3.png" alt="Image 3"></div>
+      </div>
+      <div class="carousel-nav"></div>
+  </div>
 
     <div class="content">
         <h1>iCard</h1>
@@ -243,17 +265,57 @@
     </footer>
 
     <script>
-        // 輪播圖功能
-        const slides = document.querySelectorAll('.carousel img');
-        let currentSlide = 0;
+      // 更新轮播图脚本
+      const carouselInner = document.querySelector('.carousel-inner');
+      const carouselItems = document.querySelectorAll('.carousel-item');
+      const carouselNav = document.querySelector('.carousel-nav');
+      let currentSlide = 0;
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+      // 创建导航点
+      carouselItems.forEach((_, index) => {
+          const navItem = document.createElement('div');
+          navItem.classList.add('carousel-nav-item');
+          navItem.addEventListener('click', () => goToSlide(index));
+          carouselNav.appendChild(navItem);
+      });
 
-        setInterval(() => showSlide(currentSlide + 1), 5000);
-    </script>
+      function updateCarousel() {
+          carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+          document.querySelectorAll('.carousel-nav-item').forEach((item, index) => {
+              item.classList.toggle('active', index === currentSlide);
+          });
+      }
+
+      function goToSlide(n) {
+          currentSlide = n;
+          updateCarousel();
+      }
+
+      function nextSlide() {
+          currentSlide = (currentSlide + 1) % carouselItems.length;
+          updateCarousel();
+      }
+
+      setInterval(nextSlide, 5000);
+      updateCarousel();
+
+      // 添加触摸滑动功能
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      carouselInner.addEventListener('touchstart', e => {
+          touchStartX = e.changedTouches[0].screenX;
+      }, false);
+
+      carouselInner.addEventListener('touchend', e => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 50) {
+              nextSlide();
+          } else if (touchEndX - touchStartX > 50) {
+              currentSlide = (currentSlide - 1 + carouselItems.length) % carouselItems.length;
+              updateCarousel();
+          }
+      }, false);
+  </script>
 </body>
 </html>
