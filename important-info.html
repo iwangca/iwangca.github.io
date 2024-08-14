@@ -3,8 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>重要資訊 - IwantCard</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>重要資訊 - iCard</title>
+    <style>
+        :root {
+            --main-color: #FFB97D;
+            --dark-orange: #FF8C42;
+            --light-orange: #FFD8B5;
+            --text-color: #333;
+            --white: #fff;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        header {
+            background: linear-gradient(135deg, var(--main-color), var(--dark-orange));
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        header nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        header nav ul li a:hover {
+            color: var(--light-orange);
+        }
+        h1, h2 {
+            color: var(--dark-orange);
+        }
+        .timeline {
+            background: var(--light-orange);
+            padding: 20px 0;
+            text-align: center;
+        }
+        .timeline ul {
+            padding: 0;
+            margin: 0;
+        }
+        .timeline ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .timeline ul li a {
+            color: var(--dark-orange);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .timeline ul li a:hover {
+            color: var(--text-color);
+        }
+        .content-section {
+            background: linear-gradient(45deg, var(--light-orange), var(--white));
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        ul li:before {
+            content: "•";
+            color: var(--dark-orange);
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        footer {
+            background: linear-gradient(135deg, var(--dark-orange), var(--main-color));
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,32 +115,41 @@
             </ul>
         </nav>
     </header>
-    <div class="timeline">
-        <ul>
-            <li><a href="#app-launch" title="2024/6/1 APP完成並且開始發佈">2024/6/1</a></li>
-            <li><a href="#company-founded" title="2023/8/1 公司成立">2023/8/1</a></li>
-        </ul>
-    </div>
+    
     <div class="container">
         <h1>重要資訊</h1>
-        <h2 id="app-launch">2024/6/1 APP完成並且開始發佈</h2>
-        <p>APP初版完成開始封閉測試</p>
-        <p>後續有很多功能可期待：</p>
-        <ul>
-            <li>競標功能</li>
-            <li>更強大的牌組編輯器</li>
-            <li>更強大的社群功能</li>
-            <li>更多的商品（可以透過客服中心與我們建議商品）</li>
-            <li>更多的使用體驗優化</li>
-        </ul>
-        <p>新版本即將上線</p>
-        <br>
-        <h2 id="company-founded">2023/8/1 公司成立</h2>
-        <p>公司於2023/8/1成立</p>
-        <p>成立後著重於平台開發與確認資源</p>
-        <p>希望能呈現給用戶最好的狀態</p>
+        
+        <div class="timeline">
+            <ul>
+                <li><a href="#app-launch" title="2024/6/1 APP完成並且開始發佈">2024/6/1</a></li>
+                <li><a href="#company-founded" title="2023/8/1 公司成立">2023/8/1</a></li>
+            </ul>
+        </div>
+        
+        <div class="content-section" id="app-launch">
+            <h2>2024/6/1 APP完成並且開始發佈</h2>
+            <p>APP初版完成開始封閉測試</p>
+            <p>後續有很多功能可期待：</p>
+            <ul>
+                <li>競標功能</li>
+                <li>更強大的牌組編輯器</li>
+                <li>更強大的社群功能</li>
+                <li>更多的商品（可以透過客服中心與我們建議商品）</li>
+                <li>更多的使用體驗優化</li>
+            </ul>
+            <p>新版本即將上線</p>
+        </div>
+        
+        <div class="content-section" id="company-founded">
+            <h2>2023/8/1 公司成立</h2>
+            <p>公司於2023/8/1成立</p>
+            <p>成立後著重於平台開發與確認資源</p>
+            <p>希望能呈現給用戶最好的狀態</p>
+        </div>
     </div>
-    <div class="footer">
-    </div>
+    
+    <footer>
+        <p>&copy; 2024 iCard. All rights reserved.</p>
+    </footer>
 </body>
 </html>
