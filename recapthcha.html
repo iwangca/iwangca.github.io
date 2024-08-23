@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdCei0qAAAAAJKV4DxdrCuSACZq_8QsA9KJ9qhq"></script>
-  <title>reCAPTCHA v3 Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA v3 Test</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdCei0qAAAAAJKV4DxdrCuSACZq_8QsA9KJ9qhq"></script>
 </head>
 <body>
-  <button onclick="executeRecaptcha()">Get reCAPTCHA Token</button>
-  <script>
-    function executeRecaptcha() {
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6LdCei0qAAAAAJKV4DxdrCuSACZq_8QsA9KJ9qhq', {action: 'homepage'}).then(function(token) {
-          console.log("RECAPTCHA_TOKEN: " + token);
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdCei0qAAAAAJKV4DxdrCuSACZq_8QsA9KJ9qhq', {action: 'homepage'}).then(function(token) {
+                console.log("RECAPTCHA_TOKEN: " + token);
+            });
         });
-      });
-    }
-  </script>
+    </script>
 </body>
 </html>
