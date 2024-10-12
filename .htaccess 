@@ -1,0 +1,5 @@
+# 允許訪問 app-ads.txt 文件
+<Files "app-ads.txt">
+    Order Allow,Deny
+    Allow from all
+</Files>
