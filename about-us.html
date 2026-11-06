@@ -4,104 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>關於我們 - iCard</title>
-    <style>
-        :root {
-            --main-color: #FFB97D;
-            --dark-orange: #FF8C42;
-            --light-orange: #FFD8B5;
-            --text-color: #333;
-            --white: #fff;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
-        }
-        .container {
-            width: 80%;
-            max-width: 800px;
-            margin: auto;
-            padding: 40px 0;
-        }
-        header {
-            background: linear-gradient(135deg, var(--main-color), var(--dark-orange));
-            color: var(--white);
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        header nav ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            text-align: center;
-        }
-        header nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        header nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        header nav ul li a:hover {
-            color: var(--light-orange);
-        }
-        h1 {
-            color: var(--dark-orange);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .about-content {
-            background: linear-gradient(45deg, var(--light-orange), var(--white));
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .about-content p {
-            margin-bottom: 20px;
-        }
-        footer {
-            background: linear-gradient(135deg, var(--dark-orange), var(--main-color));
-            color: var(--white);
-            text-align: center;
-            padding: 1rem 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="icon" href="photo/iCard.png" type="image/png">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">首頁</a></li>
-                <li><a href="important-info.html">重要資訊</a></li>
-                <li><a href="about-us.html">關於我們</a></li>
-                <li><a href="privacy-policy.html">隱私權政策與服務條款</a></li>
-                <li><a href="return-policy.html">退換貨政策</a></li>
-                <li><a href="contact-us.html">聯絡我們</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="bar">
+            <a class="brand" href="index.html"><img src="photo/iCard.png" alt="" width="32" height="32"><span>iCard 愛卡</span></a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="開啟選單">
+            <label for="nav-toggle" class="nav-btn">選單</label>
+            <nav class="site-nav" aria-label="主選單">
+                <ul>
+                    <li><a href="index.html#info">資訊站</a></li>
+                    <li><a href="index.html#web">網頁版與 APP</a></li>
+                    <li><a href="about-us.html" aria-current="page">關於我們</a></li>
+                    <li><a class="cta" href="https://web.iwantcard.tw">前往網頁版</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
-    <div class="container">
+    <main class="page">
         <h1>關於我們</h1>
-        
+
         <div class="about-content">
-            <p>我們是一群遊戲王的老玩家，熱愛集換式卡牌遊戲。然而，我們目睹了許多有潛力的遊戲因為交易買賣不便和流通性問題，導致玩家人數稀少，心中感到非常難過。</p>
-            <p>自小經歷了各種平台的不便，平台管理者因並非玩家，不懂玩家所需，造成各種困難。我們總是幻想著有一天能創立一個專屬於我們的交易平台，那該有多好。</p>
-            <p>長大後，我們決定不再只是幻想，而是與好友們一起行動，創立了這個平台。希望這個平台能夠改善整個紙牌遊戲的交易生態，讓集換式卡牌遊戲變得更加有趣且廣泛推廣。</p>
+            <p>我們是一群遊戲王的老玩家,熱愛集換式卡牌遊戲。然而,我們目睹了許多有潛力的遊戲,因為交易買賣不便、資訊分散、流通性不足,玩家人數始終起不來,心中感到非常難過。</p>
+            <p>自小經歷了各種平台的不便,平台管理者因並非玩家,不懂玩家所需,造成各種困難。我們總是幻想著有一天能創立一個專屬於我們的平台,那該有多好。</p>
+            <p>長大後,我們決定不再只是幻想,而是與好友們一起行動,創立了 iCard。</p>
         </div>
-    </div>
+
+        <div class="content-section">
+            <h2>我們現在怎麼做</h2>
+            <p>我們相信,一個好的卡牌平台,不只是賣卡的地方,而是玩家每天都會想打開的地方。所以 iCard 做的是這兩件事:</p>
+            <ul>
+                <li><b>遊戲資訊站:</b>為每個遊戲建立專屬資訊站,把新聞、週報、卡表、牌組與賽事戰報整理成繁體中文,讓玩家一站掌握情報。</li>
+                <li><b>網頁版與 APP 全面重做:</b>iCard 2.0 網頁版與全新手機 APP,把資訊、社群、交易、買取、拍賣與卡店地圖整合在同一個帳號裡。</li>
+            </ul>
+        </div>
+    </main>
     
-    <footer>
-        <p>&copy; 2024 iCard. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 iCard. 愛王卡國際股份有限公司</p>
+            <p><a href="index.html">首頁</a><a href="important-info.html">重要資訊</a><a href="about-us.html">關於我們</a><a href="privacy-policy.html">隱私權政策</a><a href="return-policy.html">退換貨政策</a><a href="contact-us.html">聯絡我們</a></p>
+        </div>
     </footer>
 </body>
 </html>
